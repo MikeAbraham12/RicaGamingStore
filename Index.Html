@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rica Gaming Store</title>
-</head>
-<body>
-  <h1>Halo, ini web pertama RicaGamingStore 🚀</h1>
-  <p>Kalau kamu lihat halaman ini berarti deploy berhasil!</p>
-</body>
-</html>
+[[redirects]]
+  from = "/chat"
+  to = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
+  status = 200
+  force = true
+  headers = {Access-Control-Allow-Origin = "*", Access-Control-Allow-Headers = "Content-Type"}
+
+[[redirects]]
+  from = "/ping"
+  to = "https://generativelanguage.googleapis.com"
+  status = 200
+  force = true
+  headers = {Access-Control-Allow-Origin = "*"}
