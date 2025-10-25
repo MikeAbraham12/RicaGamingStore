@@ -1,13 +1,16 @@
-here[[redirects]]
-  from = "/chat"
-  to = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
-  status = 200
-  force = true
-  headers = { Access-Control-Allow-Origin = "*", Access-Control-Allow-Headers = "Content-Type" }
+hereconst PROXY_URL = "https://creative-genie-ce108b.netlify.app";
 
-[[redirects]]
-  from = "/ping"
-  to = "https://generativelanguage.googleapis.com"
-  status = 200
-  force = true
-  headers = { Access-Control-Allow-Origin = "*" }
+async function askGemini(message) {
+  const apiKey = "AIzaSyDZhpzNLaPSFStnZnXFL_S4dgtyW--ylEk
+"; // taruh manual
+  const response = await fetch(`${PROXY_URL}/chat?key=${apiKey}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: message }] }]
+    })
+  });
+  const data = await response.json();
+  console.log(data);
+  return data?.candidates?.[0]?.content?.parts?.[0]?.text || "AI tidak merespon 😅";
+}
